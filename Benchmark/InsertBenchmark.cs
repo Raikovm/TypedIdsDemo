@@ -53,7 +53,7 @@ public class InsertBenchmark
     }
 
     [Benchmark]
-    public void TypedIdsBenchmark()
+    public void TypedIds()
     {
         typedContext.Departments.AddRange(Enumerable.Range(0, EntitiesCount).Select(_ => new TypedIdsDemo.Models.Department
         {
@@ -71,7 +71,7 @@ public class InsertBenchmark
     }
     
     [Benchmark]
-    public void StronglyTypedIdsBenchmark()
+    public void StronglyTypedIds()
     {
         stronglyTypedContext.Departments.AddRange(Enumerable.Range(0, EntitiesCount).Select(_ => new StronglyTypedIdsDemo.Models.Department
         {
@@ -89,7 +89,7 @@ public class InsertBenchmark
     }
     
     [Benchmark]
-    public void UntypedIdsBenchmark()
+    public void UntypedIds()
     {
         untypedContext.Departments.AddRange(Enumerable.Range(0, EntitiesCount).Select(_ => new NotTypedIdsDemo.Models.Department
         {

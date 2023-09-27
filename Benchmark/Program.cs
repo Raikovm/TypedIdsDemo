@@ -1,4 +1,2 @@
-﻿using Benchmark;
-
-// var result = BenchmarkRunner.Run<ReadBenchmark>();
-var result = BenchmarkRunner.Run<InsertBenchmark>();
+﻿Summary readResult = BenchmarkRunner.Run<ReadBenchmark>();
+Summary InsertResult = BenchmarkRunner.Run<InsertBenchmark>();
