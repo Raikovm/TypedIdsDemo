@@ -2,7 +2,7 @@
 
 public class StronglyTypedContext : DbContext
 {
-    public StronglyTypedContext(DbContextOptions options) : base(options) {}
+    public StronglyTypedContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

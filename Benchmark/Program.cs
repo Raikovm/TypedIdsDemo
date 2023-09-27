@@ -1,2 +1,2 @@
 ﻿Summary readResult = BenchmarkRunner.Run<ReadBenchmark>();
-Summary InsertResult = BenchmarkRunner.Run<InsertBenchmark>();
+Summary insertResult = BenchmarkRunner.Run<InsertBenchmark>();

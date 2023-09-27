@@ -8,7 +8,7 @@ public class InsertBenchmark
     private UntypedContext untypedContext;
     private TypedContext typedContext;
     private StronglyTypedContext stronglyTypedContext;
-    
+
     [GlobalSetup]
     public void GlobalSetup()
     {
@@ -26,11 +26,11 @@ public class InsertBenchmark
         untypedContext.Departments.RemoveRange(untypedContext.Departments);
         untypedContext.Employees.RemoveRange(untypedContext.Employees);
         untypedContext.SaveChanges();
-        
+
         typedContext.Departments.RemoveRange(typedContext.Departments);
         typedContext.Employees.RemoveRange(typedContext.Employees);
         typedContext.SaveChanges();
-        
+
         stronglyTypedContext.Departments.RemoveRange(stronglyTypedContext.Departments);
         stronglyTypedContext.Employees.RemoveRange(stronglyTypedContext.Employees);
         stronglyTypedContext.SaveChanges();
@@ -42,11 +42,11 @@ public class InsertBenchmark
         untypedContext.Departments.RemoveRange(untypedContext.Departments);
         untypedContext.Employees.RemoveRange(untypedContext.Employees);
         untypedContext.SaveChanges();
-        
+
         typedContext.Departments.RemoveRange(typedContext.Departments);
         typedContext.Employees.RemoveRange(typedContext.Employees);
         typedContext.SaveChanges();
-        
+
         stronglyTypedContext.Departments.RemoveRange(stronglyTypedContext.Departments);
         stronglyTypedContext.Employees.RemoveRange(stronglyTypedContext.Employees);
         stronglyTypedContext.SaveChanges();
@@ -69,7 +69,7 @@ public class InsertBenchmark
         }));
         typedContext.SaveChanges();
     }
-    
+
     [Benchmark]
     public void StronglyTypedIds()
     {
@@ -87,7 +87,7 @@ public class InsertBenchmark
         }));
         stronglyTypedContext.SaveChanges();
     }
-    
+
     [Benchmark]
     public void UntypedIds()
     {

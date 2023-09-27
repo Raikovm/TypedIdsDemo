@@ -27,10 +27,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapGet("/employees", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper) => 
+app.MapGet("/employees", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper) =>
     mapper.Map<IEnumerable<EmployeeDto>>(context.Employees.ToList()));
 
-app.MapGet("/employees/{id}", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper, int id) => 
+app.MapGet("/employees/{id}", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper, int id) =>
     mapper.Map<EmployeeDto>(context.Employees.FirstOrDefault(x => x.Id == new EmployeeId(id))));
 
 app.MapPost("/employees",
@@ -49,24 +49,24 @@ app.MapPost("/employees",
 
         context.Employees.Add(employee);
         context.SaveChanges();
-    
+
         return mapper.Map<EmployeeDto>(employee);
     });
 
 app.MapGet("/departments",
-    ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper) => 
+    ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper) =>
         mapper.Map<IEnumerable<DepartmentDto>>(context.Departments.Include(x => x.Employees).ToList()));
 
-app.MapGet("/departments{id}", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper, int id) => 
+app.MapGet("/departments{id}", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper, int id) =>
     mapper.Map<DepartmentDto>(context.Departments.FirstOrDefault(x => x.Id == new DepartmentId(id))));
 
 app.MapPost("/departments", ([FromServices] StronglyTypedContext context, [FromServices] IMapper mapper, string name) =>
 {
     Department department = new() { Name = name };
-    
+
     context.Departments.Add(department);
     context.SaveChanges();
-    
+
     return mapper.Map<DepartmentDto>(department);
 });
 

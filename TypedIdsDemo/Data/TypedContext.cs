@@ -2,7 +2,7 @@
 
 public class TypedContext : DbContext
 {
-    public TypedContext(DbContextOptions options) : base(options) {}
+    public TypedContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

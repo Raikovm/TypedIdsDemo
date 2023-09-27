@@ -2,9 +2,9 @@
 
 namespace NotTypedIdsDemo.Data;
 
-public class UntypedContext : DbContext 
+public class UntypedContext : DbContext
 {
-    public UntypedContext(DbContextOptions options) : base(options) {}
+    public UntypedContext(DbContextOptions options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
